@@ -1,4 +1,5 @@
 **Host:** A host is an end system connected to a network (typically the Internet) that can send and receive data. Examples include computers, smartphones, and smartwatches.
+
 **Server:** A server provides services or resources to clients over a network.
 
 ---
