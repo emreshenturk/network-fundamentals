@@ -25,3 +25,9 @@ First, we must connect the power supply to the switch.
 We can use `ping` to verify that network connectivity is successful.
 
 ![ping](assets/ping.png)
+
+---
+
+We can enable HTTP and HTTPS services on the server and access them from the laptop's browser.
+
+![Server services](assets/server-services.png)
