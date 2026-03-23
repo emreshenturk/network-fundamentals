@@ -95,8 +95,45 @@ An IP address is a **Layer 3 logical address** assigned by an administrator.
 
 ## Directed Broadcast Address
 
-### Simple Example
-- Assume we have a host at `172.16.0.1`.
-- `176.31.255.255` is a directed broadcast address for the `176.31.0.0/16` network.
+### What It Means
+A directed broadcast is a packet sent to the **broadcast address of a specific remote network**.
 
-If a router allows directed broadcasts, one packet can be delivered to many hosts in the target network.
+### How to Find It
+1. Start with the target network (example: `176.31.0.0/16`).
+2. Keep the network part the same (`176.31`).
+3. Set all host bits to `1`.
+4. Result: `176.31.255.255` (directed broadcast for that network).
+
+### Example
+- Source host: `172.16.0.1`
+- Target network: `176.31.0.0/16`
+- Directed broadcast address: `176.31.255.255`
+
+If a router forwards directed broadcasts, one packet can be replicated to many hosts in the destination network.
+
+---
+
+- This mechanism was abused in old amplification attacks (for example, Smurf).
+- Because of that, most routers block directed broadcasts by default.
+- In real networks, keep this feature disabled unless there is a strict operational requirement.
+
+## Local Loopback Address
+
+### What It Is
+Loopback addresses let a device send traffic to **itself**.
+
+### IPv4 Loopback
+- Reserved block: `127.0.0.0/8`
+- Full range: `127.0.0.0` to `127.255.255.255`
+- Most common host address: `127.0.0.1`
+
+### IPv6 Loopback
+- Address: `::1/128`
+
+### Why It Is Used
+- Test TCP/IP stack on the local machine.
+- Test local services without using the physical network.
+
+### Note
+- These addresses are intentionally reserved for local testing.
+- They are not usable as normal routed host addresses on the Internet.
